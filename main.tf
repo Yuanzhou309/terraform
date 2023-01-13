@@ -19,8 +19,8 @@ variable "key_name" {
   default = "p3"
 }
 
-resource "aws_security_group" "p3-project-trail" {
-  name        = "p3-project-trail"
+resource "aws_security_group" "p3-terraform" {
+  name        = "p3-terraform"
   description = "Security group for p3"
   vpc_id      = var.vpc_id
 
@@ -81,7 +81,7 @@ resource "aws_security_group" "p3-project-trail" {
   ]
 
   tags = {
-    Name    = "p3-project-trail"
+    Name    = "p3-terraform"
     Project = "p3"
   }
 }
@@ -89,7 +89,7 @@ resource "aws_security_group" "p3-project-trail" {
 resource "aws_instance" "redis" {
   ami             = "ami-0567f647e75c7bc05"
   instance_type   = "t2.micro"
-  security_groups = [aws_security_group.p3-project-trail.name]
+  security_groups = [aws_security_group.p3-terraform.name]
   key_name = var.key_name
 
   tags = {
@@ -101,7 +101,7 @@ resource "aws_instance" "redis" {
 resource "aws_instance" "web1" {
   ami             = "ami-0567f647e75c7bc05"
   instance_type   = "t2.micro"
-  security_groups = [aws_security_group.p3-project-trail.name]
+  security_groups = [aws_security_group.p3-terraform.name]
   key_name = var.key_name
 
   tags = {
@@ -113,7 +113,7 @@ resource "aws_instance" "web1" {
 resource "aws_instance" "web2" {
   ami             = "ami-0567f647e75c7bc05"
   instance_type   = "t2.micro"
-  security_groups = [aws_security_group.p3-project-trail.name]
+  security_groups = [aws_security_group.p3-terraform.name]
   key_name = var.key_name
 
   tags = {
