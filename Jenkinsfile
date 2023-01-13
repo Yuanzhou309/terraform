@@ -36,7 +36,7 @@ pipeline {
 	     }
             steps {
                 echo 'terraform destroying'
-                 sh 'sudo terraform destroy'
+                 sh 'sudo terraform destroy -auto-approve'
 		
             }
 	 }
