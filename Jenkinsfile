@@ -1,6 +1,15 @@
 pipeline {
     agent any
 	
+	
+		parameters {
+
+		booleanParam defaultValue: true, description: 'terraform apply', name: 'TerraformApply'
+		booleanParam defaultValue: true, description: 'true to run img', name: 'TerraformDestroy'
+
+		
+		
+		}
 
 	
     stages {
